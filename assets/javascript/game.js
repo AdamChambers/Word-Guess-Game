@@ -1,18 +1,19 @@
+var wins=0;
+var losses=0;
+//declares variables for wins and losses to start at 0
 $(document).ready(function randomNum() {
-            
+//When the document loads(is ready) function randomNum will be ran
     var letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
     //array of lowercased alphabet
     var letter = letters[Math.floor(Math.random() * letters.length)];
     //creates a variable that chooses a random element from the letters array
-    console.log(letter);
+    console.log("New letter to match: "+ letter);
        //logs the random letter to the console
 
     var guessesLeft=10;
-       var wins=0;
-       var losses=0;
-       //initally sets guesscounting variable, wins and losses at 0
+       //initially sets user guesses to 10
     document.onkeypress = function yuh() {
-      //"when a key is pressed on the document"
+      //"when a key is pressed on the document" function yuh will run
        guessesLeft--;
        //increments your guesses left down with every guess(keypress)
        console.log(guessesLeft);
@@ -27,7 +28,7 @@ $(document).ready(function randomNum() {
        
        if (guessesLeft>0) {
            //if you have more than 0 guesses left, do this:
-           document.getElementById("guessSoFar").innerHTML=guessedLetter;
+           document.getElementById("guessSoFar").prepend(guessedLetter + ",");
            //get the guessSoFar element from html and put a guessed letter there
            //*****I SPENT A WHILE TRYING TO APPEND GUESSES BUT COULDN'T LIST ALL GUESSES, I FAILED GOOGLE*****/
        
@@ -36,7 +37,7 @@ $(document).ready(function randomNum() {
                //if your guessed letter matches the randomly pulled computer letter do this:
                wins++;
                //increment wins by 1
-               console.log(wins);
+               console.log("win count: " + wins);
                //log new number of wins to the console
                document.getElementById("winNumber").innerHTML=wins;
                //grab the element with id win from html and put newly incremented wins in whatever was previously there
@@ -44,8 +45,11 @@ $(document).ready(function randomNum() {
                //resets guessSoFar element
                guessesLeft=10;
                //resets guesses back to 10 
-               randomNum();
+               randomNum(letter);
+              
+               
                 //reloads document with newly incremented wins
+                
            }
     
        if (guessesLeft===0) {

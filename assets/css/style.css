@@ -7,6 +7,8 @@ body {
     border-style: solid;
     border-color: black;
     text-align: center;
+    background-color: seashell;
+    font-family: 'Times New Roman', Times, serif;
 }
 #header1 {
     text-align: center;
@@ -17,4 +19,11 @@ body {
     border-right-style: solid;
     border-color: black;
     background-color: seashell;
+    color: black;
+    padding: 5px;
 }
+#row5 {
+    border-top-style: solid;
+    text-align: center;
+}
+
